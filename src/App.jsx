@@ -46,19 +46,19 @@ function App() {
           <div className="loading-container">
             <p>Loading..</p>
           </div>
+        ) : data?.length > 0 ? (
+          <div className="list_items">
+            {data?.map((item) => {
+              return (
+                <Card
+                  key={item?.idMeal}
+                  data={item}
+                />
+              );
+            })}
+          </div>
         ) : (
-          !!data?.length && (
-            <div className="list_items">
-              {data?.map((item) => {
-                return (
-                  <Card
-                    key={item?.idMeal}
-                    data={item}
-                  />
-                );
-              })}
-            </div>
-          )
+          <p>No Data!</p>
         )}
       </section>
     </main>
